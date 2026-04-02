@@ -10,7 +10,12 @@ on:
 
 jobs:
   build:
-    uses: CloudOpsDeployment/.github/.github/workflows/agnostic-docker-build.yaml@main
+    uses: CloudOpsDeployment/gitops/.github/workflows/agnostic-docker-build.yaml@main
+
+    permissions:
+      id-token: write
+      contents: read
+
     with:
       service_name: "frontend"
       ecr_registry: ${{ vars.ECR_REGISTRY }}
